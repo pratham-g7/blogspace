@@ -1,0 +1,359 @@
+html, body {
+  margin: 1.5rem 0 0 0;
+  padding: 0;   
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(250, 173, 186);
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+#main-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main_info {
+    top: 12.5%;
+    font-family: "Delius", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* ; rgb(254, 241, 244, 0.6)*/
+    border-radius: 12px;
+    width: 100%;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1);
+
+
+    mask-image: radial-gradient(
+        circle 15px at calc(100% - 20px) 20px,
+        transparent 14px,
+        black 15px
+    );
+    mask-image: radial-gradient(
+        circle 15px at calc(100% - 20px) 20px,
+        transparent 14px,
+        black 15px
+    );
+
+}
+
+#main_image {
+  position: relative;
+  background-image: url('assets/main_image.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 30rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#info_div {
+  position: relative;
+  top: 12.5%; /* vertical offset from top */
+  width: 35%;
+  padding-right: 2.5rem;
+}
+
+#sub_image {
+  position: absolute;
+  top: 8px;      
+  right: 8px;      
+  width: 30px;   
+  height: 30px;
+  background-image: url("assets/thumbtack_new.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 20; 
+  pointer-events: none;  
+}
+
+
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 12px 30px;
+  background-color: #4CAF50;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 3rem;
+}
+
+nav ul li a {
+    color: white;
+    font-family: "Delius", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    }
+
+#pageName {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 3rem 0;
+    color: #7d420a;
+    font-family: "DynaPuff", system-ui;
+}
+
+#postbox-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+#postlist-ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1300px; /* 3 * 400px + 2 * 2rem gap */
+}
+
+.post-box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+}
+
+.post-box:hover {
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.post-title:hover {
+    text-decoration: underline;
+}
+
+.post-content {
+    font-size: 1rem;
+    color: #333;
+}
+
+.page_text {
+    font-family: "Delius", sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    position: relative;
+    bottom: 2rem;
+    /* padding: 20px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    width: 35%;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.post-title, .post-content {
+    font-family: "Delius", sans-serif;
+}
+
+#createPost {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ff69b4; /* hot pink or any color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2rem;
+}   
+
+#newPost.hidden {
+    display: none;
+
+}
+
+#newPost {
+    position: fixed;
+    bottom: 80px;
+    right: 75px;
+    width: 300px;
+    background-color: pink;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#inputBoxes {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#postName {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: "Delius", sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#postContent {
+    width: 100%;
+    height: 90px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: "Delius", sans-serif;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.newPostTxt {
+    margin-bottom: 0;
+}
+
+#postBtn {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Delius", sans-serif;
+    font-size: 1rem;
+}   
+
+footer {
+  border-radius: 12px;
+  width: 20rem;
+  text-align: center;
+  background-color: #ff69b4;
+  color: #333;
+  font-family: "Delius", sans-serif;
+  margin: 5rem auto 0 auto;
+}
+
+.title_wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.content_wrapper {
+    position: relative;
+    width: inherit;
+    max-width: inherit;
+}
+
+#title-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90px;
+    padding: 8px;
+    pointer-events: none; /* allow interaction with textarea */
+    background: transparent;
+    font-family: "Delius", sans-serif;
+    font-size: 0.85rem;
+    color: grey;
+    z-index: 2;
+}
+
+#content-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90px;
+    padding: 8px;
+    pointer-events: none; /* allow interaction with textarea */
+    background: transparent;
+    font-family: "Delius", sans-serif;
+    font-size: 0.85rem;
+    color: grey;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    #main_info {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    #postbox-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #postlist-ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-box {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #createPost {
+        bottom: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    #newPost {
+        width: 80%;
+        right: 5%;
+    }
+    
+}
