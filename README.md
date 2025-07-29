@@ -26,16 +26,22 @@
 ## 📁 Project Structure
 <pre>
 blogspace/
-├── public/ # Frontend static files
-│ ├── assets/
-│ │ └── main_image.jpg # Page Banner
-│ ├── app.js # Main frontend JS
-│ └── style.css # Main stylesheet
+├── public/               # Frontend static files
+│   ├── assets/           # Images and media
+│   │   └── main_image.jpg
+│   ├── app.js            # Frontend JavaScript (fetch-based UI actions)
+│   └── style.css         # Main CSS stylesheet
 │
-├── views/ # Server-rendered EJS templates
-│ └── index.ejs # Main page template
+├── views/                # EJS templates rendered by the server
+│   └── index.ejs         # Home page and post list
 │
-├── index.js # Main Express server file
+├── db/                   # Database connection and schema
+│   ├── db.js             # MongoDB connection logic
+│   └── schema.js         # Blog post Mongoose schema
+│
+├── index.js              # Main Express server
+├── package.json
+└── README.md
 </pre>
 
 ---
