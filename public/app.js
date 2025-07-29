@@ -41,4 +41,20 @@ $(document).ready(() => {
 
   updateCounter('#postName', '#title-counter', 30);
   updateCounter('#postContent', '#content-counter', 500);
-});
+
+  $(".postDel").on("click", function () {
+      const postId = $(this).data("id");
+
+      fetch(`/posts/delete/${postId}`, {
+        method: "DELETE"
+      })
+      .then(response => {
+        if (response.ok) {
+          $(this).closest("li").remove();
+        } else {
+          console.error("Failed to delete");
+        }
+      })
+      .catch(err => console.error("Error:", err));
+    });
+  });

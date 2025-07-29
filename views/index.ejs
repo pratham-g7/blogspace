@@ -30,6 +30,7 @@
             <% postList.forEach(post => { %>
                 <li>
                     <div class="post-box">
+                        <button class="postDel" data-id="<%= post.id %>">🗑️</button>
       <a href="/posts/<%= post.id %>" class="post-title"><%= post.name %></a>
       <p class="post-content"><%= post.content %></p>
     </div>
