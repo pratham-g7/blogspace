@@ -1,4 +1,24 @@
+function showReg() {
+  $(".regMsg").hide()
+  $(".userInput").show()
+
+}
+function showMsg() {
+  $(".regMsg").show()
+  $(".userInput").hide()
+}
+
+
 $(document).ready(() => {
+  user = localStorage.getItem("BLOGSPACE_USER")
+  if (!user){
+      $(".userInput").show()
+      
+  } else {
+    $(".regMsg").text(`Registered as: ${user}`)
+    $(".regMsg").show()
+  }
+  $("#usernameInput").val(user || "Anonymous");
 
   $("#pageName").text(""); 
   const title = "BlogSpace";
@@ -39,7 +59,8 @@ $(document).ready(() => {
     $(counterSelector).text(`${initialCount}/${max}`);
   };
 
-  updateCounter('#postName', '#title-counter', 30);
+  updateCounter('#userBox', '#username-counter', 10)
+  updateCounter('.postName', '#title-counter', 30);
   updateCounter('#postContent', '#content-counter', 500);
 
   $(".postDel").on("click", function () {
@@ -58,3 +79,10 @@ $(document).ready(() => {
       .catch(err => console.error("Error:", err));
     });
   });
+function setUsername(event) {
+  event.preventDefault();
+  const name = event.target.setName.value.toLowerCase()
+  $(".regMsg").text(`Registered as: ${name}`)
+  showMsg()
+  localStorage.setItem("BLOGSPACE_USER", name)
+}

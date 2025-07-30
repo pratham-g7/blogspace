@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
  
 app.get("/posts", async (req, res) => {  
     const posts = await Blog.find();
-    res.render("index.ejs", { postList: posts });
+    res.render("index.ejs", { postList: posts, showDel: false});
 });
 
 app.get("/about", (req, res) => {
@@ -32,6 +32,7 @@ app.post("/posts/new", async (req, res) => {
   try {
     await Blog.create({
       id: postId,
+      author: req.body.username || "Anonymous",
       name: req.body.name,
       content: req.body.content
     });
@@ -49,7 +50,7 @@ app.delete("/posts/delete/:id", async (req, res) => {
 
   try {
     await Blog.findOneAndDelete({ id: customId });
-    
+     
     const index = posts.findIndex(p => p.id === customId);
     if (index !== -1) {
       posts.splice(index, 1);
@@ -96,11 +97,12 @@ app.get("/posts/:id", (req, res) => {
     const postId = req.params.id;
     const post = posts.find(p => p.id === postId);
     if (post) {
-        res.render("index.ejs", {postList: [post]});
+        res.render("index.ejs", {postList: [post], showDel: true});
     } else {
         res.status(404).send("Post not found");
     }
 });
+
  
 app.listen(PORT, () => {
     console.log(`Server is running on: http://localhost:${PORT}/`);

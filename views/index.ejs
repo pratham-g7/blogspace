@@ -11,12 +11,23 @@
 <body>
     <header>
         <nav>
+            <form class="userInput" onsubmit="setUsername(event)">
+        <div class="username-div">
+        <input class="postName" id="userBox" maxlength="10" type="text" name="setName" placeholder="Username: " required>
+        <span class="char-counter" id="username-counter">0/10</span>
+        <button class="postBtn" id="regBtn" type="submit">Set Profile</button>
+        </div>
+        
+    </form>
+    
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/posts">Posts</a></li>
                 <li><a href="/about">About</a></li>
             </ul>
+        <h2 class="regMsg page_text_s"></h2>
         </nav>
+        
         <h1 class="typing" id="pageName">BlogSpace</h1>  
     </header>
     <main>
@@ -30,9 +41,12 @@
             <% postList.forEach(post => { %>
                 <li>
                     <div class="post-box">
+                        <% if (locals.showDel) { %>
                         <button class="postDel" data-id="<%= post.id %>">🗑️</button>
+                        <% } %>
       <a href="/posts/<%= post.id %>" class="post-title"><%= post.name %></a>
       <p class="post-content"><%= post.content %></p>
+      <p class="post-footer page_text">- <%= post.author %></p>
     </div>
                 </li>
             <% }) %>
@@ -49,11 +63,12 @@
         <h2 class="addPostBtn">+</h2>
         <div id="newPost" class="hidden">
         <form action="/posts/new" method="post">
+            <input type="hidden" name="username" id="usernameInput">
             <h2 class="page_text newPostTxt">Create a New Post</h2>
             <div id="inputBoxes">
                 <div class="title_wrapper">
             <label for="postName"></label>
-            <input maxlength="30" placeholder="Post Title:" type="text" id="postName" name="name" required>
+            <input maxlength="30" placeholder="Post Title:" type="text" class="postName" name="name" required>
             <span class="char-counter" id="title-counter">0/30</span>
             </div>
             <br>
@@ -64,7 +79,7 @@
             </div>
         </div>
             <br>
-            <button id="postBtn" type="submit">Create a new post!</button>
+            <button class="postBtn" type="submit">Create a new post!</button>
         </form>
         </div>
     </div>
