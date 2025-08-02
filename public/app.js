@@ -10,7 +10,7 @@ function showMsg() {
 
 
 $(document).ready(() => {
-  user = localStorage.getItem("BLOGSPACE_USER")
+  const user = localStorage.getItem("BLOGSPACE_USER")
   if (!user){
       $(".userInput").show()
       
@@ -29,10 +29,14 @@ $(document).ready(() => {
       $("#pageName").append(title.charAt(i));
       i++;
       setTimeout(type, 150);
-    } else {$(pageName).removeClass("typing");}
+    } else {$("#pageName").removeClass("typing");}
   }
 
   type();
+
+  $(".addCmnt").click(function () {
+    $(this).parent().find(".commentForm-div").toggleClass("hidden");
+  });
 
   $(".addPostBtn").click(() => {
     $("#newPost").toggleClass("hidden");

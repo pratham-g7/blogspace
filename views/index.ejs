@@ -11,15 +11,15 @@
 <body>
     <header>
         <nav>
+            <% if (!locals.showForm) { %>
             <form class="userInput" onsubmit="setUsername(event)">
         <div class="username-div">
         <input class="postName" id="userBox" maxlength="10" type="text" name="setName" placeholder="Username: " required>
         <span class="char-counter" id="username-counter">0/10</span>
         <button class="postBtn" id="regBtn" type="submit">Set Profile</button>
         </div>
-        
     </form>
-    
+            <% } %>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/posts">Posts</a></li>
@@ -27,7 +27,6 @@
             </ul>
         <h2 class="regMsg page_text_s"></h2>
         </nav>
-        
         <h1 class="typing" id="pageName">BlogSpace</h1>  
     </header>
     <main>
@@ -39,7 +38,9 @@
         <div id="postbox-div">
         <ul id="postlist-ul">
             <% postList.forEach(post => { %>
+                <% if (!["ygwhaojme", "zue0gf938", "kcn2160j0"].includes(post.id)) { %>
                 <li>
+                    <div class="post_comment_div">
                     <div class="post-box">
                         <% if (locals.showDel) { %>
                         <button class="postDel" data-id="<%= post.id %>">🗑️</button>
@@ -48,8 +49,31 @@
       <p class="post-content"><%= post.content %></p>
       <p class="post-footer page_text">- <%= post.author %></p>
     </div>
-                </li>
+    <% if (locals.showDel) { %>
+        <div class="commentDiv">
+            <button class="addCmnt">📝</button>
+                <div class="commentForm-div hidden">
+                    <form action="/posts/<%= post.id %>/comment" method="POST" class="commentForm">
+                        <input type="hidden" name="username" id="usernameInput">
+                        <div class="cmntAccept">
+                        <textarea maxlength="26" placeholder="Comment:" type="text" class="commentBox" name="comment" required></textarea>
+                        <button class="sendCmnt" type="submit">Comment</button>
+                        </div>
+                    </form> 
+                </div>
+                <span>Comment Thread</span>
+        <ul>
+            <% post.comments.forEach(comment => { %>
+            <li class="eachCmnt">
+                <p><%= comment.author %>: <%= comment.text %></p>
+            </li>
             <% }) %>
+        </ul>
+        </div>
+         <% } %>
+         </div>
+                </li>
+            <% }}) %>
         </ul>
         </div>
         <% } else {%>
@@ -85,7 +109,7 @@
     </div>
     </main>
     <footer>
-        <p>&copy; 2023 BlogSpace. All rights reserved.</p>
+        <p>&copy; 2025 BlogSpace. All rights reserved.</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/app.js"></script>
