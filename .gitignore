@@ -151,3 +151,4 @@ old/
 .env
 .py
 c.js
+tsconfig.json
