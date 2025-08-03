@@ -53,10 +53,10 @@
         <div class="commentDiv">
             <button class="addCmnt">📝</button>
                 <div class="commentForm-div hidden">
-                    <form action="/posts/<%= post.id %>/comment" method="POST" class="commentForm">
+                    <form action="/posts/<%= post.id %>/comments" method="POST" class="commentForm">
                         <input type="hidden" name="username" id="usernameInput">
                         <div class="cmntAccept">
-                        <textarea maxlength="26" placeholder="Comment:" type="text" class="commentBox" name="comment" required></textarea>
+                        <textarea maxlength="69" placeholder="Comment:" type="text" class="commentBox" name="comment" required></textarea>
                         <button class="sendCmnt" type="submit">Comment</button>
                         </div>
                     </form> 
@@ -65,7 +65,7 @@
         <ul>
             <% post.comments.forEach(comment => { %>
             <li class="eachCmnt">
-                <p><%= comment.author %>: <%= comment.text %></p>
+                <p class="cmntAuthor"><%= comment.author %>:</p> <p class="cmntText"><%= comment.text %></p>
             </li>
             <% }) %>
         </ul>

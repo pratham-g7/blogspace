@@ -28,24 +28,38 @@ app.get("/posts", async (req, res) => {
 app.get("/about", (req, res) => {
     res.render("index.ejs", {postList: null});
 });
-
-app.post("/posts/:id/comment", async (req, res) => {
+app.post("/posts/:id/comments", async (req, res) => {
   const commentId = Math.random().toString(36).substr(2, 9);
-  await Blog.findOneAndUpdate(
-  {id: req.params.id},
-  {
-    $push: {
-      comments: {
-        id: commentId,
-        text: req.body.comment,
-        author: req.body.username || "Anonymous"
+  const updatedPost = await Blog.findOneAndUpdate(
+    { id: req.params.id },
+    {
+      $push: {
+        comments: {
+          id: commentId,
+          text: req.body.comment,
+          author: req.body.username || "Anonymous"
+        }
       }
-    }
-  }
+    },
+    { new: true }
   );
-  const post = await Blog.findOne({ id: req.params.id });
-  res.render("index.ejs", {postList: [post], showDel: true})
+
+  res.render("index.ejs", { postList: [updatedPost], showDel: true });
 });
+
+
+app.delete("/posts/:postId/comments/:commentId", async (req, res) => {
+  const { postId, commentId } = req.params;
+
+  const updatedPost = await Blog.findOneAndUpdate(
+    { id: postId },
+    { $pull: { comments: { id: commentId } } },
+    { new: true }
+  );
+
+  res.render("index.ejs", { postList: [updatedPost], showDel: true });
+});
+
 
 app.post("/posts/new", async (req, res) => {
   
