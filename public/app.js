@@ -1,10 +1,12 @@
 function showReg() {
   $(".regMsg").hide()
+  $("#logOut").hide()
   $(".userInput").show()
 
 }
 function showMsg() {
   $(".regMsg").show()
+  $("#logOut").show()
   $(".userInput").hide()
 }
 
@@ -12,13 +14,18 @@ function showMsg() {
 $(document).ready(() => {
   const user = localStorage.getItem("BLOGSPACE_USER")
   if (!user){
-      $(".userInput").show()
+      showReg()
       
   } else {
     $(".regMsg").text(`Registered as: ${user}`)
-    $(".regMsg").show()
+    showMsg()
   }
   $("#usernameInput").val(user || "Anonymous");
+
+  $("#logOut").on("click", (event) => {
+    localStorage.clear()
+    window.location.replace("/")
+  });
 
   $("#pageName").text(""); 
   const title = "BlogSpace";
@@ -48,20 +55,23 @@ $(document).ready(() => {
     }
   });
 
-  const updateCounter = (inputSelector, counterSelector, max) => {
-    $(inputSelector).on("input", function () {
-      const count = $(this).val().length;
-      if (count === max) {
-        $(counterSelector).css("color", "red")
-      } else {
-        $(counterSelector).css("color", "grey")
-      }
-      $(counterSelector).text(`${count}/${max}`);
-    });
+const updateCounter = (inputSelector, counterSelector, max) => {
+  if (!$(inputSelector).length || !$(counterSelector).length) return;
 
-    const initialCount = $(inputSelector).val().length;
-    $(counterSelector).text(`${initialCount}/${max}`);
-  };
+  $(inputSelector).on("input", function () {
+    const count = $(this).val().length;
+    if (count === max) {
+      $(counterSelector).css("color", "red");
+    } else {
+      $(counterSelector).css("color", "grey");
+    }
+    $(counterSelector).text(`${count}/${max}`);
+  });
+
+  const initialCount = $(inputSelector).val().length;
+  $(counterSelector).text(`${initialCount}/${max}`);
+};
+
 
   updateCounter('#userBox', '#username-counter', 10)
   updateCounter('.postName', '#title-counter', 30);

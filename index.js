@@ -26,7 +26,7 @@ app.get("/posts", async (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.render("index.ejs", {postList: null});
+    res.render("about.ejs");
 });
 app.post("/posts/:id/comments", async (req, res) => {
   const commentId = Math.random().toString(36).substr(2, 9);

@@ -1,0 +1,19 @@
+<nav>
+    <% if (!locals.showForm) { %>
+        <form class="userInput" onsubmit="setUsername(event)">
+    <div class="username-div">
+    <input class="postName" id="userBox" maxlength="10" type="text" name="setName" placeholder="Username: " required>
+    <span class="char-counter" id="username-counter">0/10</span>
+    <button class="postBtn" id="regBtn" type="submit">Set Profile</button>
+    </div>
+</form>
+        <% } %>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    <h2 class="regMsg page_text_s"></h2>
+    <button id="logOut"><i class="bi bi-box-arrow-right"></i></button>
+</nav>
+<h1 class="typing" id="pageName">BlogSpace</h1>  

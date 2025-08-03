@@ -6,28 +6,12 @@
     <title>BlogSpace</title>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <% if (!locals.showForm) { %>
-            <form class="userInput" onsubmit="setUsername(event)">
-        <div class="username-div">
-        <input class="postName" id="userBox" maxlength="10" type="text" name="setName" placeholder="Username: " required>
-        <span class="char-counter" id="username-counter">0/10</span>
-        <button class="postBtn" id="regBtn" type="submit">Set Profile</button>
-        </div>
-    </form>
-            <% } %>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/posts">Posts</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        <h2 class="regMsg page_text_s"></h2>
-        </nav>
-        <h1 class="typing" id="pageName">BlogSpace</h1>  
+        <%- include('partials/header') %>
     </header>
     <main>
         <% if (locals.postList) { %>
@@ -38,7 +22,7 @@
         <div id="postbox-div">
         <ul id="postlist-ul">
             <% postList.forEach(post => { %>
-                <% if (!["ygwhaojme", "zue0gf938", "kcn2160j0"].includes(post.id)) { %>
+                <% if (!["ygwhaojme", "zue0gf938", "kcn2160j0", "uk0fulabm", "zef38owho"].includes(post.id)) { %>
                 <li>
                     <div class="post_comment_div">
                     <div class="post-box">

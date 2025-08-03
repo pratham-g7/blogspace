@@ -194,8 +194,26 @@ nav ul li a:hover {
     position: absolute;
     padding: 5px;
     min-width: 150px;
-    left: -450px;
+    left: -425px;
 }
+
+#logOut {
+    display: none;
+    all: unset;
+    border-radius: 16px;
+    background-color: #ec5463;
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: absolute;
+    right: -425px;
+    font-family: "Delius", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
 
 .post-title, .post-content {
     font-family: "Delius", sans-serif;
@@ -473,7 +491,49 @@ footer {
     font-weight: 600;
 }
 
+#about-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    min-width: 650px;
+    background-color: white;
+    border-radius: 12px;
+    border: 4px dashed #ffb6c1;
+    padding: 20px;
+    font-family: "Delius", sans-serif;
+}
+
+.about-me ul {
+    padding: 0 20px;
+}
+
+.about-me ul li {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+
 @media (max-width: 768px) {
+
+    .about-me {
+        min-width: auto;
+        width: 90%;
+        box-sizing: border-box;
+        padding: 16px;
+    }
+
+    .about-me ul {
+        padding: 0 10px;
+    }
+
+    .about-me ul li {
+        font-size: 1rem; 
+    }
 
     .userInput {
         left: 0;
@@ -483,6 +543,10 @@ footer {
         left: 225px;
         bottom: -17.5vh;
         width: 100px;
+    }
+    #logOut {
+        position: relative;
+        right: 0;
     }
 
     #main_info {
