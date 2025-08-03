@@ -28,7 +28,9 @@
                     <div class="post-box">
                         <% if (locals.showDel) { %>
                         <button class="postDel" data-id="<%= post.id %>">🗑️</button>
-                        <% } %>
+                        <% } else { %>
+                           <a href="/posts/<%= post.id %>" class="seeCmnts" data-id="<%= post.id %>"><i class="bi bi-arrow-up-right-square"></i></a>
+                            <% } %>
       <a href="/posts/<%= post.id %>" class="post-title"><%= post.name %></a>
       <p class="post-content"><%= post.content %></p>
       <p class="post-footer page_text">- <%= post.author %></p>

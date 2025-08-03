@@ -389,6 +389,16 @@ footer {
     background-color: #ec5463;
 }
 
+.seeCmnts {
+    all: unset;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #f9394c70;
+}
+
 .comments {
     all: unset;
     position: absolute;

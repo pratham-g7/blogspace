@@ -27,6 +27,7 @@ $(document).ready(() => {
     window.location.replace("/")
   });
 
+
   $("#pageName").text(""); 
   const title = "BlogSpace";
   let i = 0;
