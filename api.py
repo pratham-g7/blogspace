@@ -57,6 +57,29 @@ comments= [
     ]
 ]
 
+from pymongo import MongoClient
+
+uri = "mongodb+srv://pratham-g7:Poil22769@tasklab.dqroodl.mongodb.net/blogspace?retryWrites=true&w=majority&appName=tasklab"
+
+db_name = "blogspace"
+collection_name = "blogs"
+
+client = MongoClient(uri)
+db = client[db_name]
+collection = db[collection_name]
+
+cursor = collection.find({}, {"id": 1, "comments.id": 1})
+
+post_comment_dict = {}
+
+for doc in cursor:
+    post_id = doc.get("id")
+    comments = doc.get("comments", [])
+    comment_ids = [comment.get("id") for comment in comments if "id" in comment]
+    if post_id:
+        post_comment_dict[post_id] = comment_ids
+
+client.close()
 
 
 def addPosts():
@@ -81,12 +104,7 @@ def addComments():
 
 
 def deleteComments():
-    comments = {
-  "xhu935ew3": ["n8y7b9j54", "vbb3kmz5q", "tr7599bhk", "hhf0uq0f1"],
-  "uk0fulabm": ["i61vucaze", "g2xqhfzg6", "qssrj9f7g", "4nc1b4blg", "o3gh6gxz1", "hr6pb29hk"],
-  "kacahsk1f": ["rs8taad8l", "w4bnqhd6n", "i0z2jtbyk", "qppn4rdcq", "ra8j1qrjk", "0drcciv75", "6m15q4i2p", "qavddx2gs"]
-}
-
+    comments = post_comment_dict
 
     for post_id, comment_ids in comments.items():
         for comment_id in comment_ids:

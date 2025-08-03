@@ -33,7 +33,7 @@
       <p class="post-content"><%= post.content %></p>
       <p class="post-footer page_text">- <%= post.author %></p>
     </div>
-    <% if (locals.showDel) { %>
+    <% if (postList.length === 1) { %>
         <div class="commentDiv">
             <button class="addCmnt">📝</button>
                 <div class="commentForm-div hidden">
