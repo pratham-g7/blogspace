@@ -444,6 +444,8 @@ footer {
 
 .cmntAccept {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .commentBox {
@@ -495,6 +497,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
 .about-me {
@@ -515,6 +518,10 @@ footer {
 .about-me ul li {
     font-size: 1.2rem;
     font-weight: 500;
+}
+
+.feedback-flex {
+    display: flex;
 }
 
 

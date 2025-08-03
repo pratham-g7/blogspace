@@ -10,21 +10,21 @@ posts = [
     "username": "Vishwa",
     "content": "this week was going FINE until EVERY FKIN SUBJ gave assignments ON THE SAME DAY!!! OS LAB, CN project, DBMS quiz… bro i actually can't. slept at 4am last night writing code that didn't even run 💀 sir said “run it again” like i didn't already do that 18 times. AND i forgot to submit the form for internals so now that's another email. i want peace. i want sleep. i want to drop out."
   },
-  {
-    "name": "why did i even come today",
-    "username": "Diya",
-    "content": "class started at 8am. sir didn't show up till 8:30. then he came and taught one page and left. that's it. one page. bro i woke up at 6:45 for THIS?? also forgot my ID so security gave me that look like i'm a criminal. now sitting in canteen with 40 mins left till next class.."
-  },
-  {
-    "name": "never wearing white pants to workshop again",
-    "username": "Sagar",
-    "content": "who told me it was a good idea to wear white pants to WORKSHOP. there's fkin grease on my thighs, shirt, ID card… i look like i fought a car. canteen aunty laughed when she saw me. bmsce mech = no peace, only stains."
-  },
-  {
-    "name": "i fucked up",
-    "username": "Riya",
-    "content": "woke up at 10, said i'll chill for 10 mins. it's 7:43pm now and i've done exactly 0% work. OS assignment is pending, CN ppt is pending, i haven't even opened the whatsapp group. and now i'm having an existential crisis over a Google Form. why do i only get productive at 1am??? sunday was supposed to be chill bro not a deadline jungle."
-  }
+#   {
+#     "name": "why did i even come today",
+#     "username": "Diya",
+#     "content": "class started at 8am. sir didn't show up till 8:30. then he came and taught one page and left. that's it. one page. bro i woke up at 6:45 for THIS?? also forgot my ID so security gave me that look like i'm a criminal. now sitting in canteen with 40 mins left till next class.."
+#   },
+#   {
+#     "name": "never wearing white pants to workshop again",
+#     "username": "Sagar",
+#     "content": "who told me it was a good idea to wear white pants to WORKSHOP. there's fkin grease on my thighs, shirt, ID card… i look like i fought a car. canteen aunty laughed when she saw me. bmsce mech = no peace, only stains."
+#   },
+#   {
+#     "name": "i fucked up",
+#     "username": "Riya",
+#     "content": "woke up at 10, said i'll chill for 10 mins. it's 7:43pm now and i've done exactly 0% work. OS assignment is pending, CN ppt is pending, i haven't even opened the whatsapp group. and now i'm having an existential crisis over a Google Form. why do i only get productive at 1am??? sunday was supposed to be chill bro not a deadline jungle."
+#   }
 ]
 
 comments= [
@@ -69,7 +69,7 @@ def addPosts():
           print(f"❌ Failed: {post['name']} | Status: {response.status_code}")
 
 def addComments():
-    ids = ["4g6t5vicz", "kacahsk1f", "xhu935ew3", "uk0fulabm"]
+    ids = ["jdsgouws3", "kacahsk1f", "xhu935ew3", "uk0fulabm"]
     for i, _id in enumerate(ids):
       url = f"http://localhost:3000/posts/{_id}/comments"
       for comment in comments[i]:
@@ -82,11 +82,9 @@ def addComments():
 
 def deleteComments():
     comments = {
-    "kcn2160j0": ["golumzt95", "dmh2nrei8", "hrqhefu4l"],
-    "4g6t5vicz": ["pob3kmdx1", "03q92uoik", "mi65v8b8w"],
-    "kacahsk1f": ["hoqo458sb", "xlzy4n3oz", "66eqg2uot", "54n4h08lq"],
-    "xhu935ew3": ["o5gl8s0q9", "j1lw6gvtc"],
-    "uk0fulabm": ["hcshcd70j", "p5jrj0owy", "ld4ebkjue"]
+  "xhu935ew3": ["n8y7b9j54", "vbb3kmz5q", "tr7599bhk", "hhf0uq0f1"],
+  "uk0fulabm": ["i61vucaze", "g2xqhfzg6", "qssrj9f7g", "4nc1b4blg", "o3gh6gxz1", "hr6pb29hk"],
+  "kacahsk1f": ["rs8taad8l", "w4bnqhd6n", "i0z2jtbyk", "qppn4rdcq", "ra8j1qrjk", "0drcciv75", "6m15q4i2p", "qavddx2gs"]
 }
 
 
@@ -99,3 +97,5 @@ def deleteComments():
             else:
                 print(f"❌ Failed to delete comment {comment_id} | Status: {res.status_code}")
 
+deleteComments()
+addComments()

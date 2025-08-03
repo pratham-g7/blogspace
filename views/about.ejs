@@ -28,6 +28,16 @@
     <li>Special thanks to no one, and to everyone who helped test, break, and shape the site.</li>
     </ul>
 </div>
+    <div class="feedback-div">
+        <form action="/feedback" method="POST" class="feedback-form">
+            <input type="hidden" name="username" id="usernameInput">
+            <h2 class="page_text newPostTxt">Send feedback!</h2>
+            <div class="feedback-flex">
+            <textarea name="feedback" class="commentBox"></textarea>
+            <button class="sendCmnt" type="submit">➡️</button>
+            </div>
+        </form>
+    </div>
     </main>
     <footer>
         <p>&copy; 2025 BlogSpace. All rights reserved.</p>

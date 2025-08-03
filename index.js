@@ -20,6 +20,11 @@ app.get("/", (req, res) => {
     res.render("index.ejs", {postList: null});
 });
  
+app.post("/feedback", (req, res) => {
+  console.log(req.body.username, ": ", req.body.feedback)
+  res.redirect("/about");
+})
+
 app.get("/posts", async (req, res) => {  
     let posts = await Blog.find();
     res.render("index.ejs", { postList: posts, showDel: false, showForm: true});
