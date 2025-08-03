@@ -524,6 +524,9 @@ footer {
     display: flex;
 }
 
+.feedback-header {
+    margin-left: 32.5px;
+}
 
 @media (max-width: 768px) {
 
