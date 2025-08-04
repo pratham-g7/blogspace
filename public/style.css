@@ -536,6 +536,15 @@ footer {
     margin-left: 32.5px;
 }
 
+
+#fbk-sent {
+    display: none;
+    text-align: center;
+    font-family: "Delius", sans-serif;
+    color: red;
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
 
     .about-me {

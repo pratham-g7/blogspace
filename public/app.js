@@ -50,6 +50,15 @@ $(document).ready(() => {
     $("#newPost").toggleClass("hidden");
   });
 
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("sent") === "true") {
+    $("#fbk-sent").fadeIn();
+
+    setTimeout(() => {
+      $("#fbk-sent").fadeOut();
+    }, 6000);
+  };
+
   $(document).click((event) => {
     if (!$(event.target).closest("#newPost, .addPostBtn").length) {
       $("#newPost").addClass("hidden");

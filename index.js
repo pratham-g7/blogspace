@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
  
 app.post("/feedback", (req, res) => {
   console.log(req.body.username, ": ", req.body.feedback)
-  res.redirect("/about");
+  res.redirect("/about?sent=true");
 })
 
 app.get("/posts", async (req, res) => {  
